@@ -1,11 +1,9 @@
 {
-  "name": "rodrigo-da-silva_jalpen-desai_comp308-project",
+  "name": "armaandeeppannu_comp308groupproject",
   "version": "1.0.0",
-  "description": "RodrigoDaSilva_JalpenDesai_COMP308Project",
+  "description": "ArmaandeepPannu_COMP308GroupProject",
   "main": "server.js",
-  "author": {
-    "name": "Rodrigo and Jalpen"
-  },
+  "author": "Rodrigo and Jalpen",
   "scripts": {
     "tsc": "tsc",
     "tsc:w": "tsc -w",
@@ -47,5 +45,14 @@
     "traceur": "0.0.111",
     "typescript": "2.0.3",
     "typings": "1.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vagha/Patient_monitoring_app.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vagha/Patient_monitoring_app/issues"
+  },
+  "homepage": "https://github.com/vagha/Patient_monitoring_app#readme"
 }
