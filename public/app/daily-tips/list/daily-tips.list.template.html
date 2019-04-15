@@ -1,0 +1,35 @@
+<div class="row mb-2 mt-3">
+    <div class="col"></div>
+    <div class="col-6 text-center" *ngIf="user">
+        <h3>Daily Tips for {{user.fullName}}</h3>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="hasError()">
+    <div class="col"></div>
+    <div class="col-8 alert alert-danger">
+        {{errorMessage}}
+    </div>
+    <div class="col"></div>
+</div>
+
+<div class="row mx-3 my-4" *ngIf="dailyTips && dailyTips.length > 0">
+    <div class="col-12">
+        <div class="row app-table-header">
+            <div class="col-3">Date</div>
+            <div class="col-9">Tip of the Day</div>
+        </div>
+        <div class="row app-table-body" *ngFor="let dt of dailyTips">
+            <div class="col-3 py-2">{{formatDate(dt.created)}}</div>
+            <div class="col-9 py-2">{{dt.tip}}</div>
+        </div>
+    </div>
+</div>
+
+<div class="row mx-3 my-4" *ngIf="showWarning">
+    <div class="col"></div>
+    <div class="col-10 alert alert-warning">
+        No existing tips were found for you.
+    </div>
+    <div class="col"></div>
+</div>

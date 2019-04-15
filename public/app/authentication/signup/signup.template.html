@@ -1,0 +1,145 @@
+﻿<nav class="navbar navbar-expand-lg navbar-light nav-color">
+    <a class="navbar-brand" [routerLink]="['/']">Patient Monitor</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']">Home</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/authentication/signin']">Signin</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container my-4">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6 text-center">
+            <h3>User Registration</h3>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row" *ngIf="hasError()">
+        <div class="col"></div>
+        <div class="col-8 alert alert-danger">
+            {{errorMessage}}
+        </div>
+        <div class="col"></div>
+    </div>
+    <form (ngSubmit)="signup()">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-8 app-box">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="firstName">First Name</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-signature"></i></span>
+                            </div>
+                            <input type="text"
+                                   name="firstName"
+                                   class="form-control"
+                                   placeholder="Please, enter your first name"
+                                   aria-label="FirstName"
+                                   aria-describedby="basic-addon1"
+                                   [(ngModel)]="user.firstName">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="lastName">Last Name</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-signature"></i></span>
+                            </div>
+                            <input type="text"
+                                   name="lastName"
+                                   class="form-control"
+                                   placeholder="Please, enter your last name"
+                                   aria-label="LastName"
+                                   aria-describedby="basic-addon1"
+                                   [(ngModel)]="user.lastName">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="username">Username</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
+                            </div>
+                            <input type="text"
+                                   name="username"
+                                   class="form-control"
+                                   placeholder="Please, enter your username"
+                                   aria-label="Username"
+                                   aria-describedby="basic-addon1"
+                                   [(ngModel)]="user.username">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="password">Password</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password"
+                                   name="password"
+                                   class="form-control"
+                                   placeholder="Please, enter your password"
+                                   aria-label="Password"
+                                   aria-describedby="basic-addon1"
+                                   [(ngModel)]="user.password">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="email">Email Adress</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input type="text"
+                                   name="email"
+                                   class="form-control"
+                                   placeholder="Please, enter your email address"
+                                   aria-label="Email"
+                                   aria-describedby="basic-addon1"
+                                   [(ngModel)]="user.email">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="program">User Type</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-tag"></i></span>
+                            </div>
+                            <select class="form-control"
+                                    id="usertype"
+                                    name="usertype"
+                                    [(ngModel)]="user.usertype">
+                                <option value="patient" selected="selected">Patient</option>
+                                <option value="nurse">Nurse</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </form>
+</div>

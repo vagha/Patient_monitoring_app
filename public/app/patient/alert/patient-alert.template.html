@@ -1,0 +1,54 @@
+<div class="row mb-2 mt-3">
+    <div class="col"></div>
+    <div class="col-6 text-center">
+        <h3>Send Emergency Alert</h3>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="hasError()">
+    <div class="col"></div>
+    <div class="col-6 alert alert-danger">
+        {{errorMessage}}
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="success">
+    <div class="col"></div>
+    <div class="col-6 alert alert-success">
+        Emergency Alert successfully sent to first responders.
+    </div>
+    <div class="col"></div>
+</div>
+<form (ngSubmit)="sendMail()">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6 app-box">
+            <div class="row">
+                <div class="col-12">
+                    <label for="information">Send Emergency Alert</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-ambulance"></i></span>
+                        </div>
+                        <textarea type="text"
+                                  name="message"
+                                  class="form-control"
+                                  placeholder="Please, enter the emergency"
+                                  aria-label="Message"
+                                  aria-describedby="basic-addon1"
+                                  [(ngModel)]="mailMessage"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-6 text-center">
+                    <button type="submit" class="btn btn-primary">Send Emergency Alert</button>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</form>

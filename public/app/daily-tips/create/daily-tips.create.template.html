@@ -1,0 +1,68 @@
+<div class="row mb-2 mt-3">
+    <div class="col"></div>
+    <div class="col-6 text-center">
+        <h3>Add Daily Tips</h3>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="hasError()">
+    <div class="col"></div>
+    <div class="col-6 alert alert-danger">
+        {{errorMessage}}
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="success">
+    <div class="col"></div>
+    <div class="col-6 alert alert-success">
+        Daily tip added successfully for the patient {{getSelectedPatient().fullName}}
+    </div>
+    <div class="col"></div>
+</div>
+<form (ngSubmit)="create()">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6 app-box">
+            <div class="row">
+                <div class="col-12">
+                    <label for="patients">Patients</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-injured"></i></span>
+                        </div>
+                        <select name="patients"
+                                class="form-control"
+                                [(ngModel)]="dailyTip.patient">
+                            <option *ngFor="let p of patients" [value]="p._id">{{p.fullName}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="tip">Tip of the Day</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-lightbulb"></i></span>
+                        </div>
+                        <textarea type="text"
+                                  name="tip"
+                                  class="form-control"
+                                  placeholder="Please, enter the tip for the patient"
+                                  aria-label="Tip"
+                                  aria-describedby="basic-addon1"
+                                  [(ngModel)]="dailyTip.tip"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-6 text-center">
+                    <button type="submit" class="btn btn-primary">Add Daily Tip</button>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</form>

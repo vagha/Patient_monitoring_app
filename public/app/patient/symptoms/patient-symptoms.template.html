@@ -1,0 +1,70 @@
+<div class="row mb-2 mt-3">
+    <div class="col"></div>
+    <div class="col-6 text-center">
+        <h3>Send Emergency Alert</h3>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="hasError()">
+    <div class="col"></div>
+    <div class="col-6 alert alert-danger">
+        {{errorMessage}}
+    </div>
+    <div class="col"></div>
+</div>
+<form (ngSubmit)="getDiseases()">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6 app-box">
+            <div class="row">
+                <div class="col-12">
+                    <label for="information">Diseases List</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-procedures"></i></span>
+                        </div>
+                        <textarea type="text"
+                                  name="symptoms"
+                                  class="form-control"
+                                  placeholder="Please, enter your symptoms separated by [,] (e.g. fever,vomiting,chest pain,joint pain)"
+                                  aria-label="Message"
+                                  aria-describedby="basic-addon1"
+                                  [(ngModel)]="symptoms"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-6 text-center">
+                    <button type="submit" class="btn btn-primary">Search for diseases</button>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</form>
+
+<div class="row mx-3 my-4" *ngIf="diseases && diseases.length > 0">
+    <div class="col"></div>
+    <div class="col-10">
+        <div class="row app-table-header">
+            <div class="col-4">Most Likely Diseases</div>
+            <div class="col-8">No. of Symptoms Found</div>
+        </div>
+        <div class="row app-table-body" *ngFor="let disease of diseases">
+            <div class="col-4 py-2">{{disease.split('_')[1]}}</div>
+            <div class="col-8 py-2">{{disease.split('_')[0]}}</div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
+<div class="row mx-3 my-4" *ngIf="showWarning">
+    <div class="col"></div>
+    <div class="col-10 alert alert-warning">
+        No diseases found for the given symptoms.
+    </div>
+    <div class="col"></div>
+</div>

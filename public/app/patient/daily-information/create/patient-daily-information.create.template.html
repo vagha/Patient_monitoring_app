@@ -1,0 +1,54 @@
+<div class="row mb-2 mt-3">
+    <div class="col"></div>
+    <div class="col-6 text-center">
+        <h3>Add Daily Information</h3>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="hasError()">
+    <div class="col"></div>
+    <div class="col-6 alert alert-danger">
+        {{errorMessage}}
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row" *ngIf="success">
+    <div class="col"></div>
+    <div class="col-6 alert alert-success">
+        Daily information successfully created
+    </div>
+    <div class="col"></div>
+</div>
+<form (ngSubmit)="create()">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6 app-box">
+            <div class="row">
+                <div class="col-12">
+                    <label for="information">Daily Information Input</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-info"></i></span>
+                        </div>
+                        <textarea type="text"
+                                  name="information"
+                                  class="form-control"
+                                  placeholder="Please, the information requested by your doctor/nurse"
+                                  aria-label="Information"
+                                  aria-describedby="basic-addon1"
+                                  [(ngModel)]="dailyInfo.info"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-6 text-center">
+                    <button type="submit" class="btn btn-primary">Add Daily Information</button>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</form>

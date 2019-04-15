@@ -1,0 +1,6 @@
+<div *ngIf="isNurse()">
+    <daily-information-list></daily-information-list>
+</div>
+<div *ngIf="!isNurse()">
+    <daily-information-create></daily-information-create>
+</div>
