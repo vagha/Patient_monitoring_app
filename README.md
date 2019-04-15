@@ -1,3 +1,3 @@
-﻿# RodrigoDaSilva_JalpenDesai_MorganLindner_COMP308Project
+﻿# COMP308 Group Project
 
 
