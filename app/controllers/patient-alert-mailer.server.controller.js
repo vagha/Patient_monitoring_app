@@ -5,8 +5,8 @@ const ObjectId = mongoose.Types.ObjectId;
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'comp308emergency@gmail.com',
-        pass: 'Comp308!@#Emergency'
+        user: 'emergencycompgrp@gmail.com',
+        pass: 'Comp308123!'
     }
 });
 //
@@ -25,8 +25,8 @@ exports.sendMail = function (req, res) {
     const email = req.body.message;
     const user = req.body.user;
     const mailOptions = {
-        from: 'comp308emergency@gmail.com',
-        to: 'comp308emergency@gmail.com',
+        from: 'emergencycompgrp@gmail.com',
+        to: 'emergencycompgrp@gmail.com',
         subject: `Emergency Alert - ${user.fullName}`,
         html: `<p>${email}</p>`
     };
