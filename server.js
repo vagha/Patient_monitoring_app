@@ -25,11 +25,13 @@ const passport = configurePassport();
 // Log the server status to the console
 console.log('Server running at http://localhost:3000/');
 
+
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('views/index'))
+  .set('views', './app/views')
+   .set('view engine', 'ejs')
+   .get('/', (req, res) => res.render('index.ejs'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
