@@ -28,7 +28,7 @@ console.log('Server running at http://localhost:3000/');
 
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
+  .use('/', express.static(path.resolve('./public')))
   .set('views', './app/views')
    .set('view engine', 'ejs')
    .get('/', (req, res) => res.render('index.ejs'))
