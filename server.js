@@ -23,5 +23,13 @@ app.listen(3000);
 // Log the server status to the console
 console.log('Server running at http://localhost:3000/');
 
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('views/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
 // Use the module.exports property to expose our Express application instance for external usage
 module.exports = app;
