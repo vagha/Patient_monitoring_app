@@ -5,6 +5,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const configureMongoose = require('./config/mongoose');
 const configureExpress = require('./config/express');
 const configurePassport = require('./config/passport');
+const express = require('express');
+const path = require('path');
 const PORT = process.env.PORT || 5000
 
 
@@ -18,7 +20,7 @@ const app = configureExpress();
 const passport = configurePassport();
 
 // Use the Express application instance to listen to the '3000' port
-app.listen(3000);
+//app.listen(3000);
 
 // Log the server status to the console
 console.log('Server running at http://localhost:3000/');
